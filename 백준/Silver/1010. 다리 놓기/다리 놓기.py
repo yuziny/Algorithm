@@ -1,16 +1,11 @@
-T = int(input())
-dp = [[0]*30 for _ in range(30)]
+import sys
+import math
 
-for i in range(30):
-    for j in range(30):
-        if i == 1:
-            dp[i][j] = j
-        else:
-            if i == j:
-                dp[i][j] = 1
-            elif i < j:
-                dp[i][j] = dp[i-1][j-1] + dp[i][j-1]
-                
+input = sys.stdin.readline
+
+T = int(input())
+
 for _ in range(T):
-    n, m = list(map(int, input().split()))     
-    print(dp[n][m])
+    n, m = map(int, input().split())
+    answer = math.comb(m, n)
+    print(answer)
